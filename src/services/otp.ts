@@ -10,7 +10,7 @@ type InjectedDependencies = {
 
 class OTPService extends TransactionBaseService {
 	static Events = {
-		CREATED: 'otp.generated',
+		GENERATED: 'otp.generated',
 		DELETED: 'otp.deleted',
 	}
 
@@ -50,12 +50,12 @@ class OTPService extends TransactionBaseService {
 		return (binary % 1000000).toString().padStart(6, '0')
 	}
 
-	async storeOTP(otp: string, key: string): Promise<'OK'> {
+	async storeOTP({ otp, key, eventMetadata }: { otp: string; key: string, eventMetadata?: Record<string, unknown> }): Promise<'OK'> {
 		return await this.atomicPhase_(async (m) => {
 			const res = await this.redisClient_.set(`otp:${key}`, otp, 'EX', 60) // 1 minute
 			this.eventBus_
 				.withTransaction(m)
-				.emit(OTPService.Events.CREATED, { otp, key })
+				.emit(OTPService.Events.GENERATED, { otp, key, eventMetadata })
 			return res
 		})
 	}
