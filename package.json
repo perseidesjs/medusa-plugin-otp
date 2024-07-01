@@ -1,19 +1,18 @@
 {
-  "name": "@perseidesjs/medusa-plugin-rate-limit",
-  "version": "1.0.1",
-  "description": "A simple rate-limit service for Medusa",
+  "name": "@perseidesjs/medusa-plugin-otp",
+  "version": "1.0.0",
+  "description": "Implements OTP for your next Medusa project",
   "author": "adevinwild",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/perseidesjs/medusa-plugin-rate-limit.git",
+  "repository": "https://github.com/perseidesjs/medusa-plugin-otp.git",
   "keywords": [
     "medusa",
     "medusa-plugin",
-    "rate-limit",
-    "rate-limiting"
+    "otp"
   ],
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
