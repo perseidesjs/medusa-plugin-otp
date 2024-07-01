@@ -257,6 +257,8 @@ export async function POST(req: MedusaRequest, res: MedusaResponse) {
 ```
 
 <p> Now whenever a customer logs in, it will no more register a connect_sid cookie, instead, it will generate a new OTP.</p>
+
+<h3>4. Subscribing to the event</h3>
 <p> You can subscribe to the event <code>TOTPService.Events.GENERATED</code> to be notified when a new OTP is generated, the key used here for example is the customer ID :</p>
 
 ```ts
@@ -300,7 +302,7 @@ export const config: SubscriberConfig = {
 
 <p>Your customer will now receive an OTP in their email, let's see how to verify it once it's consumed by your customer.</p> 
 
-<h3>4. Verifying the OTP</h3>
+<h3>5. Verifying the OTP</h3>
 <p>
 We're now going to create a new route to verify the OTP, this route will be called by the customer when they want to log in, we're going to use the <code>TOTPService</code> to verify the OTP and authenticate the customer.
 </p>
