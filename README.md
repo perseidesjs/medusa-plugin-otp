@@ -67,6 +67,7 @@ const plugins = [
 		/** @type {import('@perseidesjs/medusa-plugin-otp').PluginOptions} */
 		options: {
 			ttl: 30, // In seconds, the time to live of the OTP before expiration
+      digits: 6, // The number of digits of the OTP (e.g. 123456)
 		},
 	},
 ]
@@ -90,8 +91,18 @@ const plugins = [
       <td><code>60</code></td>
       <td>The time to live of the OTP before expiration</td>
     </tr>
+    <tr>
+      <td>digits</td>
+      <td><code>Number</code></td>
+      <td><code>6</code></td>
+      <td>The number of digits of the OTP (e.g. 123456)</td>
+    </tr>
   </tbody>
 </table>
+
+<h2> Usage </h2>
+
+<p>Coming soon...</p>
 
 
 <h2> More information </h2>

@@ -1,2 +1,3 @@
-export { default as OtpService } from './services/otp'
+export { default as TOTPService } from './services/totp'
+export { OTPGeneratedEventData } from './types/events'
 export { PluginOptions } from './types/options'
