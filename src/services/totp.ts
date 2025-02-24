@@ -22,6 +22,7 @@ class TOTPService extends TransactionBaseService {
 	private readonly defaultOptions: Required<PluginOptions> = {
 		ttl: 60, // 1 minute
 		digits: 6, // 6 digits
+		timeStep: 30, // 30 seconds time step for TOTP generation
 	}
 
 	constructor(container: InjectedDependencies, options: PluginOptions) {
@@ -58,7 +59,7 @@ class TOTPService extends TransactionBaseService {
 	}
 
 	async generate(key: string, secret?: string): Promise<string> {
-		const otp = this.generateTOTP(secret || this.generateSecret(), this.defaultOptions.ttl)
+		const otp = this.generateTOTP(secret || this.generateSecret(), this.defaultOptions.timeStep)
 		await this.redisClient_.set(`totp:${key}`, otp, 'EX', this.defaultOptions.ttl)
 		await this.eventBus_.emit(TOTPService.Events.GENERATED, { key, otp } as OTPGeneratedEventData)
 		return otp
