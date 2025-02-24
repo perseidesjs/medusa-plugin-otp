@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://www.github.com/perseidesjs">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./.r/dark.png" width="128" height="128">
-    <source media="(prefers-color-scheme: light)" srcset="./.r/light.png" width="128" height="128">
-    <img alt="Perseides logo" src="./.r/light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./.github/dark_mode.png" width="128" height="128">
+    <source media="(prefers-color-scheme: light)" srcset="./.github/light_mode.png" width="128" height="128">
+    <img alt="Perseides logo" src="./.github/light_mode.png">
     </picture>
   </a>
 </p>
@@ -26,14 +26,11 @@
 </p>
 
 <p align="center">
-  <img src="./.r/preview.gif" alt="Plugin Preview">
+  <img src="./.github/preview.gif" alt="Plugin Preview">
 </p>
 
-<blockquote>
-  <p>
-	Here's a quick preview of the plugin in action allowing you to authenticate your customers using OTP and without the need of a password.
-  </p>
-</blockquote>
+> [!WARNING]
+> This package is only for Medusa 1.x, if you need an OTP provider for Medusa 2.x, please refer to the [@perseidesjs/auth-otp](https://github.com/perseidesjs/auth-otp) package.
 
 
 <h2>
@@ -79,6 +76,7 @@ const plugins = [
 		options: {
 			ttl: 30, // In seconds, the time to live of the OTP before expiration
 			digits: 6, // The number of digits of the OTP (e.g. 123456)
+			timeStep: 30, // The time step in seconds for TOTP generation, this is used to generate a new OTP at a different time each time
 		},
 	},
 ]
@@ -110,6 +108,12 @@ const plugins = [
       <td><code>6</code></td>
       <td>The number of digits of the OTP (e.g. 123456)</td>
     </tr>
+		<tr>
+			<td>timeStep</td>
+			<td><code>Number</code></td>
+			<td><code>30</code></td>
+			<td>The time step in seconds for TOTP generation</td>
+		</tr>
   </tbody>
 </table>
 
