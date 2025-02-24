@@ -3,19 +3,25 @@ name: Publish to npm
 on:
   release:
     types: [created]
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
-          scope: '@perseidesjs'
-      - run: npm install
-      - run: npm run build
-      - run: npm publish --access public
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
