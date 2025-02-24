@@ -1,6 +1,6 @@
 {
   "name": "@perseidesjs/medusa-plugin-otp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Implements OTP for your next Medusa project",
   "author": "adevinwild",
   "license": "MIT",
