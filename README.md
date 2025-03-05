@@ -30,7 +30,7 @@
 </p>
 
 > [!WARNING]
-> This package is only for Medusa 1.x, if you need an OTP provider for Medusa 2.x, please refer to the [@perseidesjs/auth-otp](https://github.com/perseidesjs/auth-otp) package.
+> This package is only for Medusa 1.x, if you need an OTP provider for Medusa 2.x, please refer to the [@perseidesjs/auth-otp](https://www.perseides.org/plugins/auth-otp) package.
 
 
 <h2>
